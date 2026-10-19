@@ -45,7 +45,7 @@
   /* ---------------- Default content (last-resort fallback) ---------------- */
   var DEFAULT_CONTENT = {
     campaign: {
-      trustName: "Sanvi Educational Trust", schoolName: "Sanvi School", location: "Puducherry",
+      trustName: "Sanvi Educational and Charitable Trust", schoolName: "Sanvi School", location: "Puducherry",
       goalAmount: 5000000, raisedAmount: 1850000, donorCount: 312,
       villageCount: 6, childrenCount: 500, classroomCount: 10, teacherCount: 28
     },
@@ -173,7 +173,7 @@
     setText("#footerRegNo", "Reg. No. — " + (legal.registrationNo || "pending"));
     setText("#footerCert80G", legal.has80G ? "80G Certificate No. — " + (legal.cert80G || "—") : "80G Certificate — pending");
     setText("#footerPan", "PAN — " + (legal.pan || "pending"));
-    setText("#footerTrustName", c.trustName || "Sanvi Educational Trust");
+    setText("#footerTrustName", c.trustName || "Sanvi Educational and Charitable Trust");
 
     var emailEl = qs("#footerEmail");
     if (emailEl) { emailEl.textContent = contact.email || "—"; emailEl.setAttribute("href", contact.email ? "mailto:" + contact.email : "#"); }

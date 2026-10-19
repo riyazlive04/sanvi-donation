@@ -1,6 +1,6 @@
 {
   "campaign": {
-    "trustName": "Sanvi Educational Trust",
+    "trustName": "Sanvi Educational and Charitable Trust",
     "schoolName": "Sanvi School",
     "location": "Puducherry",
     "goalAmount": 5000000,
@@ -43,7 +43,7 @@
   "payment": {
     "gatewayUrl": "#",
     "upiId": "sanvitrust@upi",
-    "bankAccountName": "Sanvi Educational Trust",
+    "bankAccountName": "Sanvi Educational and Charitable Trust",
     "bankAccountNumber": "0000000000000",
     "bankIfsc": "XXXX0000000",
     "bankName": "Bank Name, Branch"

@@ -1,0 +1,9 @@
+{
+  "name": "sanvi-educational-trust-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Donor landing page for Sanvi Educational Trust's classroom construction campaign",
+  "dependencies": {
+    "@vercel/kv": "^1.0.1"
+  }
+}

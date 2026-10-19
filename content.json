@@ -1,0 +1,54 @@
+{
+  "campaign": {
+    "trustName": "Sanvi Educational Trust",
+    "schoolName": "Sanvi School",
+    "location": "Puducherry",
+    "goalAmount": 5000000,
+    "raisedAmount": 1850000,
+    "donorCount": 312,
+    "villageCount": 6,
+    "childrenCount": 500,
+    "classroomCount": 10,
+    "teacherCount": 28
+  },
+  "budget": {
+    "items": [
+      { "label": "Foundation & structure (RCC)", "amount": 180000 },
+      { "label": "Roofing & flooring", "amount": 95000 },
+      { "label": "Windows, doors & ventilation", "amount": 55000 },
+      { "label": "Electrical wiring & fans", "amount": 40000 },
+      { "label": "Desks, benches & blackboard", "amount": 65000 },
+      { "label": "Paint, finishing & signage", "amount": 35000 },
+      { "label": "Skilled & local labour", "amount": 30000 }
+    ],
+    "budgetPdfUrl": "#"
+  },
+  "legal": {
+    "registeredTrust": false,
+    "has12A": false,
+    "has80G": false,
+    "hasCSR1": false,
+    "hasFCRA": false,
+    "hasAuditedReports": false,
+    "registrationNo": "TRUST/XXXX/XXXX",
+    "cert80G": "",
+    "pan": "AAAXX0000X"
+  },
+  "contact": {
+    "email": "donate@sanvitrust.org",
+    "phone": "+91 00000 00000",
+    "whatsapp": "+91 00000 00000",
+    "address": "Village Road, District, Puducherry 000000"
+  },
+  "payment": {
+    "gatewayUrl": "#",
+    "upiId": "sanvitrust@upi",
+    "bankAccountName": "Sanvi Educational Trust",
+    "bankAccountNumber": "0000000000000",
+    "bankIfsc": "XXXX0000000",
+    "bankName": "Bank Name, Branch"
+  },
+  "meta": {
+    "lastUpdated": ""
+  }
+}

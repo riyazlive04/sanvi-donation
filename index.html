@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build 10 Classrooms | Sanvi Educational Trust</title>
+<meta name="description" content="Help Sanvi Educational Trust build 10 new classrooms for 500+ children. Every rupee is tracked, every classroom can be named after you. 80G tax benefits apply.">
+
+<!-- Perf: preconnect + swap so fonts never block first paint -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700&display=swap"></noscript>
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- EDIT ME: replace with real favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f2748'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='%23f0a500' font-family='sans-serif' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header">
+  <div class="container">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 5-9 5-9-5 9-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 10.5V16c0 1.5 3 3 7 3s7-1.5 7-3v-5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span>Sanvi Educational Trust<small>10 Classrooms Campaign</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#why">Why It Matters</a>
+      <a href="#project">The Project</a>
+      <a href="#give">Ways to Give</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <span class="donor-chip" id="donorChip"></span>
+      <button class="btn btn-primary btn-sm" data-open-modal>Donate Now</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#0f2748" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer-panel">
+    <button class="mobile-drawer-close" id="drawerClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#0f2748" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <a href="#why">Why It Matters</a>
+    <a href="#project">The Project</a>
+    <a href="#give">Ways to Give</a>
+    <a href="#faq">FAQ</a>
+    <button class="btn btn-primary" style="margin-top:18px" data-open-modal>Donate Now</button>
+  </div>
+</div>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top">
+  <div class="hero-blob blob-1" aria-hidden="true"></div>
+  <div class="hero-blob blob-2" aria-hidden="true"></div>
+  <div class="container">
+    <div>
+      <div class="hero-trust-row" id="heroTrustRow"><!-- rendered by script.js from content.json legal flags --></div>
+      <h1 id="heroHeadline">Give <span class="accent">500 children</span> a real classroom to learn in.</h1>
+      <p class="hero-sub" id="heroSub">Sanvi Educational Trust is raising ₹50,00,000 to construct 10 permanent classrooms — replacing tin-roof sheds where children currently study through monsoons and summers.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-open-modal>Donate Now →</button>
+        <a href="#project" class="btn btn-outline">See the Project Plan</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b id="heroStatRaisedShort">—</b><span id="heroStatGoalLabel">raised of goal</span></div>
+        <div class="hero-stat"><b id="heroStatDonors">—</b><span>donors so far</span></div>
+        <div class="hero-stat"><b id="heroStatVillages">—</b><span>villages served</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-top"><b id="heroCardRaised">—</b><span>raised</span></div>
+        <div class="progress-track"><div class="progress-fill" id="heroProgressFill" data-target="0"></div></div>
+        <div class="progress-meta"><span id="progressPercentText">0% funded</span><strong id="progressRemainingText">—</strong></div>
+        <div class="budget-row" style="border:none;padding:0;">
+          <span>🎯 Goal</span><b id="heroCardGoal">—</b>
+        </div>
+        <div class="hero-card-donors">
+          <div class="avatar-stack" aria-hidden="true"><span>A</span><span>R</span><span>P</span><span>+</span></div>
+          <span>Priya, Arjun &amp; 310 others have donated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PERSONALIZATION BAR ======================= -->
+<section class="persona">
+  <div class="container">
+    <div class="persona-row">
+      <span class="persona-label">👋 Tell us who's giving — we'll tailor this page for you:</span>
+      <div class="persona-options" id="personaOptions">
+        <button class="persona-btn is-active" data-persona="individual">An Individual</button>
+        <button class="persona-btn" data-persona="alumni">School Alumni</button>
+        <button class="persona-btn" data-persona="corporate">Corporate / CSR</button>
+        <button class="persona-btn" data-persona="memory">In Memory of Someone</button>
+      </div>
+      <div class="persona-name-field">
+        <input type="text" id="donorNameInput" placeholder="Your first name (optional)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= IMPACT STATS ======================= -->
+<section class="stats-strip">
+  <div class="container stats-grid">
+    <div class="stat-item"><b id="statChildren" data-count="0">0</b><span>Children currently enrolled</span></div>
+    <div class="stat-item"><b id="statClassrooms" data-count="0">0</b><span>Classrooms being built</span></div>
+    <div class="stat-item"><b id="statTeachers" data-count="0">0</b><span>Teachers on ground</span></div>
+    <div class="stat-item"><b id="statVillages" data-count="0">0</b><span>Villages in catchment area</span></div>
+  </div>
+</section>
+
+<!-- ======================= WHY ======================= -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <div class="eyebrow">The Problem</div>
+        <h2>Right now, class happens under a tin roof — or no roof at all.</h2>
+        <p style="color:var(--ink-soft)">Three of our existing structures are temporary tin-sheet rooms built in 2011. In summer, indoor temperatures cross 40°C. In monsoon, classes are cancelled when it rains. Four sections currently share two rooms in shifts, cutting real teaching time in half.</p>
+        <div class="why-points">
+          <div class="why-point">
+            <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 8v6M4.9 4.9l4.2 4.2m6 6l4.2 4.2M2 12h6m8 0h6M4.9 19.1l4.2-4.2m6-6l4.2-4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div><h4>Extreme heat in tin-roof rooms</h4><p>Peak summer classroom temperatures regularly exceed safe learning conditions.</p></div>
+          </div>
+          <div class="why-point">
+            <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 15l4-8 4 5 3-4 4 3 3-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><h4>Classes cancelled in monsoon</h4><p>Leaking roofs mean an average of 23 lost teaching days every year.</p></div>
+          </div>
+          <div class="why-point">
+            <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div><h4>Two rooms, four sections, in shifts</h4><p>Overcrowding forces a split-shift timetable that halves real instruction time.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-illustration" aria-hidden="true">
+        <svg viewBox="0 0 400 320" width="100%">
+          <rect x="30" y="140" width="340" height="150" rx="10" fill="#fff" stroke="#e7e2d9" stroke-width="2"/>
+          <rect x="30" y="100" width="340" height="40" fill="#f0a500" opacity="0.85"/>
+          <rect x="60" y="180" width="60" height="60" rx="6" fill="#e7f6f1" stroke="#1f8a70" stroke-width="2"/>
+          <rect x="140" y="180" width="60" height="60" rx="6" fill="#e7f6f1" stroke="#1f8a70" stroke-width="2"/>
+          <rect x="220" y="180" width="60" height="60" rx="6" fill="#fde9cc" stroke="#c97f00" stroke-width="2"/>
+          <rect x="300" y="180" width="40" height="110" rx="6" fill="#0f2748" opacity="0.08"/>
+          <path d="M20 100 L200 40 L380 100" fill="none" stroke="#0f2748" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="200" cy="40" r="6" fill="#c94d3a"/>
+        </svg>
+        <p style="text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:12px">Illustration: current tin-roof block (3 rooms) vs. planned permanent block (10 rooms)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROJECT / BUDGET ======================= -->
+<section class="section section--tight" id="project" style="background:var(--paper)">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center">The Project</div>
+      <h2>Where every rupee of your donation goes</h2>
+      <p>A full cost breakdown for one permanent, ventilated, monsoon-proof classroom — multiplied by 10.</p>
+    </div>
+    <div class="budget-card" id="budgetCard"><!-- rows + total rendered by script.js from content.json --></div>
+    <p style="text-align:center;font-size:13px;color:var(--ink-soft);margin-top:18px">
+      📄 <a href="#" id="budgetPdfLink" style="text-decoration:underline">View the full CA-certified budget &amp; last year's utilization report (PDF)</a>
+    </p>
+  </div>
+</section>
+
+<!-- ======================= GIVING TIERS ======================= -->
+<section class="section" id="give">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center">Ways to Give</div>
+      <h2 id="tiersHeadline">Choose what feels right for you</h2>
+      <p id="tiersSub">Every amount, big or small, moves a classroom closer to completion.</p>
+    </div>
+    <div class="tiers-grid">
+      <div class="tier-card" data-amount="1000">
+        <div class="tier-amount">₹1,000</div>
+        <p>Buys textbooks &amp; stationery for one child for a full year.</p>
+        <button class="btn btn-ghost btn-sm btn-block" data-open-modal data-amount="1000">Give ₹1,000</button>
+      </div>
+      <div class="tier-card is-recommended" data-amount="5000">
+        <div class="tier-badge">Most chosen</div>
+        <div class="tier-amount">₹5,000</div>
+        <p>Funds one bench-desk set seating 3 children, for 10+ years.</p>
+        <button class="btn btn-primary btn-sm btn-block" data-open-modal data-amount="5000">Give ₹5,000</button>
+      </div>
+      <div class="tier-card" data-amount="25000">
+        <div class="tier-amount">₹25,000</div>
+        <p>Covers the full electrical &amp; fan installation for one classroom.</p>
+        <button class="btn btn-ghost btn-sm btn-block" data-open-modal data-amount="25000">Give ₹25,000</button>
+      </div>
+      <div class="tier-card" data-amount="500000" id="tierClassroomCard">
+        <div class="tier-amount" id="tierClassroomAmount">₹5,00,000</div>
+        <p>Builds and names one entire classroom — plaque included.</p>
+        <button class="btn btn-ghost btn-sm btn-block" data-open-modal data-amount="500000" id="tierClassroomBtn">Sponsor a Classroom</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SPONSOR A CLASSROOM ======================= -->
+<section class="section section--tight" style="background:var(--paper)">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center">Name a Classroom</div>
+      <h2>Pick one of the 10 classrooms to sponsor</h2>
+      <p>Each ₹5,00,000 classroom carries a permanent plaque with your name, your family's name, or a name you choose to honour.</p>
+    </div>
+    <div class="classroom-grid" id="classroomGrid"><!-- rendered by script.js --></div>
+    <p style="text-align:center;font-size:13px;color:var(--ink-soft);margin-top:20px">Click any available classroom to preview your name on its plaque.</p>
+  </div>
+</section>
+
+<!-- ======================= TESTIMONIAL ======================= -->
+<section class="section">
+  <div class="container">
+    <div class="testi-card">
+      <p class="testi-quote" id="testiQuote">"I donated ₹5,000 after seeing the plan — six months later I visited and saw my name on classroom 4's plaque with my daughter. It's the best gift I've given."</p>
+      <div class="testi-person" id="testiPerson">Rukhsar Fatima</div>
+      <div class="testi-role" id="testiRole">Individual donor, Bengaluru</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= GALLERY PLACEHOLDER ======================= -->
+<section class="section section--tight" style="background:var(--paper)">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center">Site Progress</div>
+      <h2>Photos from the ground</h2>
+      <p><!-- EDIT ME: replace these 4 placeholders with real site photos as construction progresses --> Real site photos will appear here as construction progresses. Placeholder slots below.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="M3 16l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.6"/></svg>Current site<br>(photo pending)</div>
+      <div class="img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="M3 16l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.6"/></svg>Foundation work<br>(photo pending)</div>
+      <div class="img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="M3 16l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.6"/></svg>Children today<br>(photo pending)</div>
+      <div class="img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="10" r="1.5" fill="currentColor"/><path d="M3 16l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.6"/></svg>Our teachers<br>(photo pending)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center">Good to Know</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item is-open">
+        <div class="faq-q">Is my donation tax-exempt? <span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Sanvi Educational Trust is registered under Section 80G of the Income Tax Act. You'll receive an instant email receipt valid for tax deduction within 24 hours of donating. <!-- EDIT ME: confirm current 80G registration number & validity --></div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I know the money is actually used for this project? <span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Funds raised for this campaign are held in a separate project account, audited annually by an independent CA, and a public utilization report is published every quarter on this page.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I pay via UPI or bank transfer instead of card? <span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — select "Bank Transfer / UPI" at checkout and our system will show our account and UPI QR code, or email <a href="mailto:donate@sanvitrust.org" style="text-decoration:underline">donate@sanvitrust.org</a> for assisted giving. <!-- EDIT ME: real donation email --></div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When will the 10 classrooms be completed? <span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Construction is phased by funding. At current pace we expect the first 4 classrooms ready in 6 months and all 10 within 14 months of reaching the full goal.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can my company match this donation through CSR? <span class="chev">▾</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes, this project qualifies under Schedule VII of the Companies Act for CSR spend on education. Select "Corporate / CSR" above and our team will send a formal proposal and MOU.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FINAL CTA ======================= -->
+<section class="section">
+  <div class="container">
+    <div class="final-cta">
+      <h2 id="finalHeadline">Your classroom is waiting to be built.</h2>
+      <p id="finalRemainingText">— still stands between these children and a safe, permanent place to learn.</p>
+      <button class="btn btn-primary" data-open-modal>Donate Now →</button>
+      <p id="founderContactLine" style="margin-top:22px;font-size:13.5px;color:#a9b8d1"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Sanvi Educational Trust</h4>
+        <p>A registered public charitable trust working to improve access to safe, quality primary education in under-resourced villages. <!-- EDIT ME: trust reg. no. & year of establishment --></p>
+      </div>
+      <div>
+        <h4>Campaign</h4>
+        <a href="#why">Why It Matters</a>
+        <a href="#project">The Project</a>
+        <a href="#give">Ways to Give</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Trust Info</h4>
+        <a href="#" id="footerRegNo">Reg. No. — pending</a>
+        <a href="#" id="footerCert80G">80G Certificate — pending</a>
+        <a href="#" id="footerPan">PAN — pending</a>
+        <a href="#">Annual Reports</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="#" id="footerEmail">—</a>
+        <a href="#" id="footerPhone">—</a>
+        <a href="#" id="footerAddress">—</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> <span id="footerTrustName">Sanvi Educational Trust</span>. All rights reserved.</span>
+      <span>Built with care for transparency and trust. · <a href="admin.html" style="opacity:.5;color:inherit">Staff Login</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================= DONATION MODAL ======================= -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+
+    <div id="formView">
+      <h3>Complete your donation</h3>
+      <p class="modal-sub" id="modalSub">Every classroom funded is one step closer. Thank you for showing up for these kids.</p>
+
+      <div class="form-field">
+        <label>Select amount</label>
+        <div class="amount-grid" id="amountGrid">
+          <div class="amount-chip" data-val="1000">₹1,000</div>
+          <div class="amount-chip" data-val="5000">₹5,000</div>
+          <div class="amount-chip" data-val="25000">₹25,000</div>
+          <div class="amount-chip" data-val="500000">₹5L</div>
+        </div>
+        <input type="number" id="customAmount" placeholder="Or enter custom amount (₹)">
+      </div>
+
+      <div class="form-field">
+        <label>Your full name</label>
+        <input type="text" id="modalName" placeholder="e.g. Priya Sharma">
+      </div>
+      <div class="form-field">
+        <label>Email address</label>
+        <input type="email" id="modalEmail" placeholder="you@example.com">
+      </div>
+      <div class="form-field">
+        <label>Payment method</label>
+        <select id="paymentMethod">
+          <option value="gateway">Card / UPI / Netbanking (online)</option>
+          <option value="bank">Bank Transfer / UPI QR (manual)</option>
+        </select>
+      </div>
+
+      <div class="certificate-preview" id="certPreview">
+        <div class="cert-title">Classroom Sponsorship Preview</div>
+        <div class="cert-name" id="certName">Your Name Here</div>
+        <div class="cert-sub" id="certSub">will appear on the plaque of Classroom #—</div>
+      </div>
+
+      <!-- EDIT ME: replace data-gateway-url with your live Razorpay/Instamojo/PayPal checkout link or embed their button script here -->
+      <button class="btn btn-primary btn-block" id="submitDonation" style="margin-top:18px" data-gateway-url="#">Proceed to Pay →</button>
+      <p class="modal-note">🔒 Secure payment · Instant 80G receipt by email · <!-- EDIT ME: swap "#" above for real payment gateway --></p>
+    </div>
+
+    <div class="thankyou-box" id="thankyouView">
+      <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3 id="thankyouHeadline">Thank you!</h3>
+      <p id="thankyouBody" class="modal-sub">This preview shows how your contribution and plaque would be confirmed. Connect a real payment gateway to make this live.</p>
+      <button class="btn btn-ghost btn-block" id="thankyouClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

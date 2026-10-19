@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Sanvi Educational Trust</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { background: var(--navy); }
+  .gate-screen {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .gate-box {
+    background: #fff; border-radius: var(--radius-lg); padding: 40px 34px; max-width: 380px; width: 100%;
+    box-shadow: var(--shadow-lg); text-align: center;
+  }
+  .gate-box h1 { font-size: 20px; margin-bottom: 6px; }
+  .gate-box p { color: var(--ink-soft); font-size: 13.5px; margin-bottom: 20px; }
+  .gate-box input { width: 100%; padding: 12px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); font-size: 15px; margin-bottom: 14px; text-align: center; }
+  .gate-error { color: var(--danger); font-size: 13px; margin-top: 10px; min-height: 18px; }
+
+  .admin-wrap { background: var(--cream); min-height: 100vh; padding: 32px 0 80px; display: none; }
+  .admin-wrap.is-visible { display: block; }
+  .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
+  .admin-header h1 { font-size: 24px; margin: 0; }
+  .admin-header p { margin: 0; color: var(--ink-soft); font-size: 13.5px; }
+  .admin-section {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 26px 28px; margin-bottom: 22px;
+  }
+  .admin-section h2 { font-size: 16px; margin-bottom: 4px; }
+  .admin-section .hint { color: var(--ink-soft); font-size: 13px; margin-bottom: 18px; }
+  .field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .field-grid.single { grid-template-columns: 1fr; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 12.5px; font-weight: 700; color: var(--navy); }
+  .field input[type=text], .field input[type=number], .field input[type=email], .field input[type=url] {
+    padding: 9px 12px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); font-size: 14px; font-family: inherit;
+  }
+  .field input:focus { outline: none; border-color: var(--teal); }
+  .check-field { display: flex; align-items: center; gap: 8px; flex-direction: row; }
+  .check-field input { width: 16px; height: 16px; }
+  .check-field label { margin: 0; }
+  .budget-row-edit { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-bottom: 10px; align-items: center; }
+  .admin-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; position: sticky; bottom: 0; background: var(--cream); padding: 16px 0; }
+  .status-banner { padding: 12px 16px; border-radius: var(--radius-sm); font-size: 13.5px; margin-bottom: 16px; display: none; }
+  .status-banner.is-visible { display: block; }
+  .status-banner.ok { background: var(--teal-light); color: var(--teal); }
+  .status-banner.warn { background: #fff3da; color: var(--amber-dark); }
+  .status-banner.err { background: #fde3dd; color: var(--danger); }
+</style>
+</head>
+<body>
+
+<div class="gate-screen" id="gateScreen">
+  <div class="gate-box">
+    <h1>Sanvi Trust — Admin</h1>
+    <p>Enter the staff password to edit campaign content.</p>
+    <form id="gateForm">
+      <input type="password" id="gatePassword" placeholder="Password" autofocus>
+      <button type="submit" class="btn btn-primary btn-block">Unlock</button>
+      <div class="gate-error" id="gateError"></div>
+    </form>
+  </div>
+</div>
+
+<div class="admin-wrap" id="adminWrap">
+  <div class="container">
+    <div class="admin-header">
+      <div>
+        <h1>Campaign Content</h1>
+        <p>Edits here update the live donor page. Last saved: <span id="lastSaved">—</span></p>
+      </div>
+      <a href="index.html" class="btn btn-ghost btn-sm" target="_blank">↗ View live page</a>
+    </div>
+
+    <div class="status-banner" id="statusBanner"></div>
+
+    <div class="admin-section">
+      <h2>Campaign numbers</h2>
+      <p class="hint">These drive the hero, progress bar, and impact stats.</p>
+      <div class="field-grid">
+        <div class="field"><label>Trust name</label><input type="text" id="f_campaign_trustName"></div>
+        <div class="field"><label>School name</label><input type="text" id="f_campaign_schoolName"></div>
+        <div class="field"><label>Location</label><input type="text" id="f_campaign_location"></div>
+        <div class="field"><label>Goal amount (₹)</label><input type="number" id="f_campaign_goalAmount"></div>
+        <div class="field"><label>Raised so far (₹)</label><input type="number" id="f_campaign_raisedAmount"></div>
+        <div class="field"><label>Donor count</label><input type="number" id="f_campaign_donorCount"></div>
+        <div class="field"><label>Children enrolled</label><input type="number" id="f_campaign_childrenCount"></div>
+        <div class="field"><label>Classrooms being built</label><input type="number" id="f_campaign_classroomCount"></div>
+        <div class="field"><label>Teachers</label><input type="number" id="f_campaign_teacherCount"></div>
+        <div class="field"><label>Villages served</label><input type="number" id="f_campaign_villageCount"></div>
+      </div>
+    </div>
+
+    <div class="admin-section">
+      <h2>Budget breakdown</h2>
+      <p class="hint">Shown on the page as a line-item list; the total is "Goal amount" above.</p>
+      <div id="budgetRows"></div>
+      <div class="field" style="margin-top:6px"><label>Budget / utilization report PDF link</label><input type="url" id="f_budget_budgetPdfUrl" placeholder="https://..."></div>
+    </div>
+
+    <div class="admin-section">
+      <h2>Registrations &amp; legal</h2>
+      <p class="hint">Only tick what's actually certified — these drive the trust badges and footer. An unticked 80G means the badge won't show, and "Indian Donors Only" appears automatically unless FCRA is ticked.</p>
+      <div class="field-grid">
+        <div class="check-field"><input type="checkbox" id="f_legal_registeredTrust"><label>Registered public trust</label></div>
+        <div class="check-field"><input type="checkbox" id="f_legal_has12A"><label>12A certified</label></div>
+        <div class="check-field"><input type="checkbox" id="f_legal_has80G"><label>80G certified</label></div>
+        <div class="check-field"><input type="checkbox" id="f_legal_hasCSR1"><label>CSR-1 registered</label></div>
+        <div class="check-field"><input type="checkbox" id="f_legal_hasFCRA"><label>FCRA registered (can accept foreign/NRI donations)</label></div>
+        <div class="check-field"><input type="checkbox" id="f_legal_hasAuditedReports"><label>Annual audited reports available</label></div>
+      </div>
+      <div class="field-grid" style="margin-top:14px">
+        <div class="field"><label>Registration number</label><input type="text" id="f_legal_registrationNo"></div>
+        <div class="field"><label>80G certificate number</label><input type="text" id="f_legal_cert80G"></div>
+        <div class="field"><label>PAN</label><input type="text" id="f_legal_pan"></div>
+      </div>
+    </div>
+
+    <div class="admin-section">
+      <h2>Contact</h2>
+      <div class="field-grid">
+        <div class="field"><label>Email</label><input type="email" id="f_contact_email"></div>
+        <div class="field"><label>Phone</label><input type="text" id="f_contact_phone"></div>
+        <div class="field"><label>WhatsApp</label><input type="text" id="f_contact_whatsapp"></div>
+        <div class="field"><label>Address</label><input type="text" id="f_contact_address"></div>
+      </div>
+    </div>
+
+    <div class="admin-section">
+      <h2>Payment</h2>
+      <p class="hint">Gateway URL is where "Proceed to Pay" sends donors — add your Razorpay/Instamojo payment-page link here once ready.</p>
+      <div class="field-grid">
+        <div class="field"><label>Payment gateway URL</label><input type="url" id="f_payment_gatewayUrl" placeholder="https://rzp.io/..."></div>
+        <div class="field"><label>UPI ID</label><input type="text" id="f_payment_upiId"></div>
+        <div class="field"><label>Bank account name</label><input type="text" id="f_payment_bankAccountName"></div>
+        <div class="field"><label>Bank account number</label><input type="text" id="f_payment_bankAccountNumber"></div>
+        <div class="field"><label>IFSC</label><input type="text" id="f_payment_bankIfsc"></div>
+        <div class="field"><label>Bank name &amp; branch</label><input type="text" id="f_payment_bankName"></div>
+      </div>
+    </div>
+
+    <div class="admin-actions">
+      <button class="btn btn-ghost" id="btnReload">↺ Reload saved content</button>
+      <button class="btn btn-outline" style="color:var(--navy);border-color:var(--navy)" id="btnPreview">Preview only (this browser)</button>
+      <button class="btn btn-primary" id="btnPublish">Publish live →</button>
+    </div>
+  </div>
+</div>
+
+<script src="admin.js" defer></script>
+</body>
+</html>

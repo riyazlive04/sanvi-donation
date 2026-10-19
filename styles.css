@@ -333,6 +333,16 @@ img, svg { display: block; max-width: 100%; }
 .testi-person { margin-top: 20px; font-size: 14px; color: var(--amber); font-weight: 700; }
 .testi-role { color: #a9b8d1; font-size: 13px; font-weight: 400; }
 
+.impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.impact-card {
+  background: var(--navy); color: #fff; border-radius: var(--radius-lg);
+  padding: 30px 26px; text-align: left;
+}
+.impact-card .testi-quote { font-size: 15.5px; line-height: 1.55; }
+.impact-card .testi-person { margin-top: 16px; font-size: 13.5px; }
+.impact-card .testi-role { font-size: 12px; }
+@media (max-width: 860px) { .impact-grid { grid-template-columns: 1fr; } }
+
 /* ---------- Placeholder image blocks ---------- */
 .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .img-placeholder {

@@ -199,35 +199,27 @@
   /* ---------------- Personalization state ---------------- */
   var PERSONA_CONTENT = {
     individual: {
-      heroSubTpl: "{trust} is raising {goal} to construct {n} permanent classrooms, replacing tin-roof sheds where children currently study through monsoons and summers.",
+      heroSubTpl: "{trust} is raising {goal} to build {n} new classrooms for its Inclusive Education and Early Intervention programmes, so no child is turned away for lack of space.",
       tiersHeadline: "Choose what feels right for you",
       tiersSub: "Every amount, big or small, moves a classroom closer to completion.",
-      quote: "\"I donated ₹5,000 after seeing the plan. Six months later I visited and saw my name on classroom 4's plaque with my daughter. It's the best gift I've given.\"",
-      person: "Rukhsar Fatima", role: "Individual donor, Bengaluru",
       modalSub: "Every classroom funded is one step closer. Thank you for showing up for these kids."
     },
-    alumni: {
-      heroSubTpl: "You once sat in a classroom like these. Help us give today's students the permanent, monsoon-proof classrooms your batch never had, and put your school years on a plaque that lasts.",
-      tiersHeadline: "Give back to where it started",
-      tiersSub: "Many alumni sponsor in their batch's name. Ask us about a 'Batch of 20XX' classroom plaque.",
-      quote: "\"Our batch of 1998 pooled together and sponsored classroom 7. Seeing 'Batch of 1998' on that plaque means more to us than any reunion ever has.\"",
-      person: "Alumni Batch of 1998", role: "Group donors, Hyderabad",
-      modalSub: "Alumni gifts can be pooled under one batch name. Just add a note after donating and our team will combine it."
+    community: {
+      heroSubTpl: "You've seen what Sanvi does for children and families in Puducherry. Help give its Inclusive Education and Early Intervention programmes the space they've outgrown.",
+      tiersHeadline: "Give back to your community",
+      tiersSub: "Local businesses and community groups often co-fund a classroom together. Ask us about a shared plaque.",
+      modalSub: "Community gifts can be pooled under one group name. Just add a note after donating and our team will combine it."
     },
     corporate: {
-      heroSubTpl: "This campaign qualifies under Schedule VII of the Companies Act for CSR spend on education. Fund one classroom fully, or co-fund several, with your company's name on each plaque and a formal MOU.",
+      heroSubTpl: "This campaign qualifies under Schedule VII of the Companies Act, which lists special education for the differently abled among its eligible CSR categories. Fund one classroom fully, or co-fund several, with your company's name on each plaque and a formal MOU.",
       tiersHeadline: "CSR-eligible giving tiers",
-      tiersSub: "All tiers are eligible under Schedule VII (Education). Request a CSR proposal PDF after selecting an amount.",
-      quote: "\"We sponsored 2 classrooms as part of our FY24 CSR budget. The utilization report and audited receipts made our compliance review painless.\"",
-      person: "CSR Lead, Mid-size IT firm", role: "Corporate donor, Pune",
+      tiersSub: "All tiers are eligible under Schedule VII (special education). Request a CSR proposal PDF after selecting an amount.",
       modalSub: "For CSR, select Corporate below. Our team will follow up with a formal proposal, MOU, and compliance documents."
     },
     memory: {
-      heroSubTpl: "Honour someone who mattered to you with something that lasts: a classroom built, a plaque named, and {n} classrooms' worth of children who'll learn under that name for decades.",
+      heroSubTpl: "Honour someone who mattered to you with something that lasts: a classroom built, a plaque named, and years of children of every ability who'll learn under that name.",
       tiersHeadline: "Give in memory, give forever",
       tiersSub: "Any tier can carry a memorial inscription, 'In loving memory of ___', on the plaque or donor wall.",
-      quote: "\"We sponsored a classroom in memory of our father, a teacher himself. Knowing children will learn in 'his' room every single day means everything to our family.\"",
-      person: "The Mehta Family", role: "Memorial donors, Ahmedabad",
       modalSub: "Add the name to be memorialised in the donor name field. It will appear on the plaque exactly as entered."
     }
   };
@@ -245,8 +237,8 @@
     var headlineEl = qs("#heroHeadline");
     if (headlineEl) {
       headlineEl.innerHTML = greetingName
-        ? greetingName + ", help give <span class=\"accent\">" + c.childrenCount + " children</span> a real classroom to learn in."
-        : "Give <span class=\"accent\">" + c.childrenCount + " children</span> a real classroom to learn in.";
+        ? greetingName + ", help give <span class=\"accent\">" + c.childrenCount + " children of every ability</span> a real classroom to learn in."
+        : "Give <span class=\"accent\">" + c.childrenCount + " children of every ability</span> a real classroom to learn in.";
     }
     var heroSub = content.heroSubTpl
       .replace("{trust}", c.trustName)
@@ -255,9 +247,6 @@
     setText("#heroSub", heroSub);
     setText("#tiersHeadline", content.tiersHeadline);
     setText("#tiersSub", content.tiersSub);
-    setText("#testiQuote", content.quote);
-    setText("#testiPerson", content.person);
-    setText("#testiRole", content.role);
     setText("#modalSub", content.modalSub);
 
     var finalHeadline = qs("#finalHeadline");

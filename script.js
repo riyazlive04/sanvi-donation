@@ -66,8 +66,16 @@
       hasFCRA: false, hasAuditedReports: false,
       registrationNo: "", cert80G: "", pan: ""
     },
-    contact: { email: "", phone: "", whatsapp: "", address: "" },
-    payment: { gatewayUrl: "#", upiId: "", bankAccountName: "", bankAccountNumber: "", bankIfsc: "", bankName: "" }
+    contact: {
+      email: "director@sectpondy.org", phone: "+91 97507 18191",
+      whatsapp: "+91 97507 18191",
+      address: "No. 58, Kamaraj Salai, Pooranankuppam, Hotel Le-Pondy Road, Puducherry 605007"
+    },
+    payment: {
+      gatewayUrl: "#", upiId: "9750718191@okbizaxis",
+      bankAccountName: "Sanvi Educational & Charitable Trust",
+      bankAccountNumber: "", bankIfsc: "", bankName: ""
+    }
   };
 
   var pageContent = null; // populated by loadContent()
@@ -166,21 +174,21 @@
     var founderLine = qs("#founderContactLine");
     if (founderLine) {
       founderLine.textContent = contact.phone
-        ? "Prefer to talk it through first? Call or WhatsApp " + contact.phone + " — many of our larger donors do."
+        ? "Prefer to talk it through first? Call or WhatsApp " + contact.phone + ". Many of our larger donors do."
         : "";
     }
 
-    setText("#footerRegNo", "Reg. No. — " + (legal.registrationNo || "pending"));
-    setText("#footerCert80G", legal.has80G ? "80G Certificate No. — " + (legal.cert80G || "—") : "80G Certificate — pending");
-    setText("#footerPan", "PAN — " + (legal.pan || "pending"));
+    setText("#footerRegNo", "Reg. No.: " + (legal.registrationNo || "pending"));
+    setText("#footerCert80G", legal.has80G ? "80G Certificate No.: " + (legal.cert80G || "-") : "80G Certificate: pending");
+    setText("#footerPan", "PAN: " + (legal.pan || "pending"));
     setText("#footerTrustName", c.trustName || "Sanvi Educational and Charitable Trust");
 
     var emailEl = qs("#footerEmail");
-    if (emailEl) { emailEl.textContent = contact.email || "—"; emailEl.setAttribute("href", contact.email ? "mailto:" + contact.email : "#"); }
+    if (emailEl) { emailEl.textContent = contact.email || "-"; emailEl.setAttribute("href", contact.email ? "mailto:" + contact.email : "#"); }
     var phoneEl = qs("#footerPhone");
-    if (phoneEl) { phoneEl.textContent = contact.phone || "—"; phoneEl.setAttribute("href", contact.phone ? "tel:" + contact.phone.replace(/\s+/g, "") : "#"); }
+    if (phoneEl) { phoneEl.textContent = contact.phone || "-"; phoneEl.setAttribute("href", contact.phone ? "tel:" + contact.phone.replace(/\s+/g, "") : "#"); }
     var addrEl = qs("#footerAddress");
-    if (addrEl) addrEl.textContent = contact.address || "—";
+    if (addrEl) addrEl.textContent = contact.address || "-";
 
     var submitBtn = qs("#submitDonation");
     if (submitBtn) submitBtn.setAttribute("data-gateway-url", (data.payment && data.payment.gatewayUrl) || "#");
@@ -191,20 +199,20 @@
   /* ---------------- Personalization state ---------------- */
   var PERSONA_CONTENT = {
     individual: {
-      heroSubTpl: "{trust} is raising {goal} to construct {n} permanent classrooms — replacing tin-roof sheds where children currently study through monsoons and summers.",
+      heroSubTpl: "{trust} is raising {goal} to construct {n} permanent classrooms, replacing tin-roof sheds where children currently study through monsoons and summers.",
       tiersHeadline: "Choose what feels right for you",
       tiersSub: "Every amount, big or small, moves a classroom closer to completion.",
-      quote: "\"I donated ₹5,000 after seeing the plan — six months later I visited and saw my name on classroom 4's plaque with my daughter. It's the best gift I've given.\"",
+      quote: "\"I donated ₹5,000 after seeing the plan. Six months later I visited and saw my name on classroom 4's plaque with my daughter. It's the best gift I've given.\"",
       person: "Rukhsar Fatima", role: "Individual donor, Bengaluru",
       modalSub: "Every classroom funded is one step closer. Thank you for showing up for these kids."
     },
     alumni: {
-      heroSubTpl: "You once sat in a classroom like these. Help us give today's students the permanent, monsoon-proof classrooms your batch never had — and put your school years on a plaque that lasts.",
+      heroSubTpl: "You once sat in a classroom like these. Help us give today's students the permanent, monsoon-proof classrooms your batch never had, and put your school years on a plaque that lasts.",
       tiersHeadline: "Give back to where it started",
-      tiersSub: "Many alumni sponsor in their batch's name — ask us about a 'Batch of 20XX' classroom plaque.",
+      tiersSub: "Many alumni sponsor in their batch's name. Ask us about a 'Batch of 20XX' classroom plaque.",
       quote: "\"Our batch of 1998 pooled together and sponsored classroom 7. Seeing 'Batch of 1998' on that plaque means more to us than any reunion ever has.\"",
       person: "Alumni Batch of 1998", role: "Group donors, Hyderabad",
-      modalSub: "Alumni gifts can be pooled under one batch name — just add a note after donating and our team will combine it."
+      modalSub: "Alumni gifts can be pooled under one batch name. Just add a note after donating and our team will combine it."
     },
     corporate: {
       heroSubTpl: "This campaign qualifies under Schedule VII of the Companies Act for CSR spend on education. Fund one classroom fully, or co-fund several, with your company's name on each plaque and a formal MOU.",
@@ -212,15 +220,15 @@
       tiersSub: "All tiers are eligible under Schedule VII (Education). Request a CSR proposal PDF after selecting an amount.",
       quote: "\"We sponsored 2 classrooms as part of our FY24 CSR budget. The utilization report and audited receipts made our compliance review painless.\"",
       person: "CSR Lead, Mid-size IT firm", role: "Corporate donor, Pune",
-      modalSub: "For CSR, select Corporate below — our team will follow up with a formal proposal, MOU, and compliance documents."
+      modalSub: "For CSR, select Corporate below. Our team will follow up with a formal proposal, MOU, and compliance documents."
     },
     memory: {
-      heroSubTpl: "Honour someone who mattered to you with something that lasts — a classroom built, a plaque named, and {n} classrooms' worth of children who'll learn under that name for decades.",
+      heroSubTpl: "Honour someone who mattered to you with something that lasts: a classroom built, a plaque named, and {n} classrooms' worth of children who'll learn under that name for decades.",
       tiersHeadline: "Give in memory, give forever",
-      tiersSub: "Any tier can carry a memorial inscription — 'In loving memory of ___' — on the plaque or donor wall.",
+      tiersSub: "Any tier can carry a memorial inscription, 'In loving memory of ___', on the plaque or donor wall.",
       quote: "\"We sponsored a classroom in memory of our father, a teacher himself. Knowing children will learn in 'his' room every single day means everything to our family.\"",
       person: "The Mehta Family", role: "Memorial donors, Ahmedabad",
-      modalSub: "Add the name to be memorialised in the donor name field — it will appear on the plaque exactly as entered."
+      modalSub: "Add the name to be memorialised in the donor name field. It will appear on the plaque exactly as entered."
     }
   };
 
@@ -503,8 +511,8 @@
         thankView.classList.add("is-visible");
         qs("#thankyouHeadline").textContent = "Thank you, " + name.split(" ")[0] + "!";
         qs("#thankyouBody").textContent = modalState.room
-          ? "Your pledge of " + fmtINR(modalState.amount) + " is reserved for Classroom #" + modalState.room + ". (Demo preview — connect a payment gateway to collect real payments.)"
-          : "Your pledge of " + fmtINR(modalState.amount) + " has been recorded. (Demo preview — connect a payment gateway to collect real payments.)";
+          ? "Your pledge of " + fmtINR(modalState.amount) + " is reserved for Classroom #" + modalState.room + ". (Demo preview: connect a payment gateway to collect real payments.)"
+          : "Your pledge of " + fmtINR(modalState.amount) + " has been recorded. (Demo preview: connect a payment gateway to collect real payments.)";
 
         applyPersonalization();
         if (modalState.room) renderClassroomGrid();

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin — Sanvi Educational and Charitable Trust</title>
+<title>Admin - Sanvi Educational and Charitable Trust</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
@@ -56,7 +56,7 @@
 
 <div class="gate-screen" id="gateScreen">
   <div class="gate-box">
-    <h1>Sanvi Trust — Admin</h1>
+    <h1>Sanvi Trust - Admin</h1>
     <p>Enter the staff password to edit campaign content.</p>
     <form id="gateForm">
       <input type="password" id="gatePassword" placeholder="Password" autofocus>
@@ -71,7 +71,7 @@
     <div class="admin-header">
       <div>
         <h1>Campaign Content</h1>
-        <p>Edits here update the live donor page. Last saved: <span id="lastSaved">—</span></p>
+        <p>Edits here update the live donor page. Last saved: <span id="lastSaved">-</span></p>
       </div>
       <a href="index.html" class="btn btn-ghost btn-sm" target="_blank">↗ View live page</a>
     </div>
@@ -82,16 +82,16 @@
       <h2>Campaign numbers</h2>
       <p class="hint">These drive the hero, progress bar, and impact stats.</p>
       <div class="field-grid">
-        <div class="field"><label>Trust name</label><input type="text" id="f_campaign_trustName"></div>
-        <div class="field"><label>School name</label><input type="text" id="f_campaign_schoolName"></div>
-        <div class="field"><label>Location</label><input type="text" id="f_campaign_location"></div>
-        <div class="field"><label>Goal amount (₹)</label><input type="number" id="f_campaign_goalAmount"></div>
-        <div class="field"><label>Raised so far (₹)</label><input type="number" id="f_campaign_raisedAmount"></div>
-        <div class="field"><label>Donor count</label><input type="number" id="f_campaign_donorCount"></div>
-        <div class="field"><label>Children enrolled</label><input type="number" id="f_campaign_childrenCount"></div>
-        <div class="field"><label>Classrooms being built</label><input type="number" id="f_campaign_classroomCount"></div>
-        <div class="field"><label>Teachers</label><input type="number" id="f_campaign_teacherCount"></div>
-        <div class="field"><label>Villages served</label><input type="number" id="f_campaign_villageCount"></div>
+        <div class="field"><label>Trust name</label><input type="text" id="f_campaign_trustName" placeholder="e.g. Sanvi Educational and Charitable Trust"></div>
+        <div class="field"><label>School name</label><input type="text" id="f_campaign_schoolName" placeholder="e.g. Sanvi Matriculation School"></div>
+        <div class="field"><label>Location</label><input type="text" id="f_campaign_location" placeholder="e.g. Puducherry"></div>
+        <div class="field"><label>Goal amount (₹)</label><input type="number" id="f_campaign_goalAmount" placeholder="e.g. 5000000"></div>
+        <div class="field"><label>Raised so far (₹)</label><input type="number" id="f_campaign_raisedAmount" placeholder="e.g. 1850000"></div>
+        <div class="field"><label>Donor count</label><input type="number" id="f_campaign_donorCount" placeholder="e.g. 312"></div>
+        <div class="field"><label>Children enrolled</label><input type="number" id="f_campaign_childrenCount" placeholder="e.g. 500"></div>
+        <div class="field"><label>Classrooms being built</label><input type="number" id="f_campaign_classroomCount" placeholder="e.g. 10"></div>
+        <div class="field"><label>Teachers</label><input type="number" id="f_campaign_teacherCount" placeholder="e.g. 28"></div>
+        <div class="field"><label>Villages served</label><input type="number" id="f_campaign_villageCount" placeholder="e.g. 6"></div>
       </div>
     </div>
 
@@ -99,12 +99,12 @@
       <h2>Budget breakdown</h2>
       <p class="hint">Shown on the page as a line-item list; the total is "Goal amount" above.</p>
       <div id="budgetRows"></div>
-      <div class="field" style="margin-top:6px"><label>Budget / utilization report PDF link</label><input type="url" id="f_budget_budgetPdfUrl" placeholder="https://..."></div>
+      <div class="field" style="margin-top:6px"><label>Budget / utilization report PDF link</label><input type="url" id="f_budget_budgetPdfUrl" placeholder="e.g. https://drive.google.com/file/d/.../view"></div>
     </div>
 
     <div class="admin-section">
       <h2>Registrations &amp; legal</h2>
-      <p class="hint">Only tick what's actually certified — these drive the trust badges and footer. An unticked 80G means the badge won't show, and "Indian Donors Only" appears automatically unless FCRA is ticked.</p>
+      <p class="hint">Only tick what's actually certified, since these drive the trust badges and footer. An unticked 80G means the badge won't show, and "Indian Donors Only" appears automatically unless FCRA is ticked.</p>
       <div class="field-grid">
         <div class="check-field"><input type="checkbox" id="f_legal_registeredTrust"><label>Registered public trust</label></div>
         <div class="check-field"><input type="checkbox" id="f_legal_has12A"><label>12A certified</label></div>
@@ -114,32 +114,32 @@
         <div class="check-field"><input type="checkbox" id="f_legal_hasAuditedReports"><label>Annual audited reports available</label></div>
       </div>
       <div class="field-grid" style="margin-top:14px">
-        <div class="field"><label>Registration number</label><input type="text" id="f_legal_registrationNo"></div>
-        <div class="field"><label>80G certificate number</label><input type="text" id="f_legal_cert80G"></div>
-        <div class="field"><label>PAN</label><input type="text" id="f_legal_pan"></div>
+        <div class="field"><label>Registration number</label><input type="text" id="f_legal_registrationNo" placeholder="e.g. TRUST/2015/00234"></div>
+        <div class="field"><label>80G certificate number</label><input type="text" id="f_legal_cert80G" placeholder="e.g. AABTS1234A/80G/2024-25"></div>
+        <div class="field"><label>PAN</label><input type="text" id="f_legal_pan" placeholder="e.g. AABTS1234A"></div>
       </div>
     </div>
 
     <div class="admin-section">
       <h2>Contact</h2>
       <div class="field-grid">
-        <div class="field"><label>Email</label><input type="email" id="f_contact_email"></div>
-        <div class="field"><label>Phone</label><input type="text" id="f_contact_phone"></div>
-        <div class="field"><label>WhatsApp</label><input type="text" id="f_contact_whatsapp"></div>
-        <div class="field"><label>Address</label><input type="text" id="f_contact_address"></div>
+        <div class="field"><label>Email</label><input type="email" id="f_contact_email" placeholder="e.g. donate@sanvitrust.org"></div>
+        <div class="field"><label>Phone</label><input type="text" id="f_contact_phone" placeholder="e.g. +91 98765 43210"></div>
+        <div class="field"><label>WhatsApp</label><input type="text" id="f_contact_whatsapp" placeholder="e.g. +91 98765 43210"></div>
+        <div class="field"><label>Address</label><input type="text" id="f_contact_address" placeholder="e.g. 12 Temple Street, Villupuram District, Puducherry 605001"></div>
       </div>
     </div>
 
     <div class="admin-section">
       <h2>Payment</h2>
-      <p class="hint">Gateway URL is where "Proceed to Pay" sends donors — add your Razorpay/Instamojo payment-page link here once ready.</p>
+      <p class="hint">Gateway URL is where "Proceed to Pay" sends donors. Add your Razorpay/Instamojo payment-page link here once ready.</p>
       <div class="field-grid">
-        <div class="field"><label>Payment gateway URL</label><input type="url" id="f_payment_gatewayUrl" placeholder="https://rzp.io/..."></div>
-        <div class="field"><label>UPI ID</label><input type="text" id="f_payment_upiId"></div>
-        <div class="field"><label>Bank account name</label><input type="text" id="f_payment_bankAccountName"></div>
-        <div class="field"><label>Bank account number</label><input type="text" id="f_payment_bankAccountNumber"></div>
-        <div class="field"><label>IFSC</label><input type="text" id="f_payment_bankIfsc"></div>
-        <div class="field"><label>Bank name &amp; branch</label><input type="text" id="f_payment_bankName"></div>
+        <div class="field"><label>Payment gateway URL</label><input type="url" id="f_payment_gatewayUrl" placeholder="e.g. https://rzp.io/l/sanvi-trust"></div>
+        <div class="field"><label>UPI ID</label><input type="text" id="f_payment_upiId" placeholder="e.g. sanvitrust@okaxis"></div>
+        <div class="field"><label>Bank account name</label><input type="text" id="f_payment_bankAccountName" placeholder="e.g. Sanvi Educational and Charitable Trust"></div>
+        <div class="field"><label>Bank account number</label><input type="text" id="f_payment_bankAccountNumber" placeholder="e.g. 50100123456789"></div>
+        <div class="field"><label>IFSC</label><input type="text" id="f_payment_bankIfsc" placeholder="e.g. SBIN0001234"></div>
+        <div class="field"><label>Bank name &amp; branch</label><input type="text" id="f_payment_bankName" placeholder="e.g. State Bank of India, Puducherry Branch"></div>
       </div>
     </div>
 

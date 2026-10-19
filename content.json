@@ -30,23 +30,23 @@
     "hasCSR1": false,
     "hasFCRA": false,
     "hasAuditedReports": false,
-    "registrationNo": "TRUST/XXXX/XXXX",
+    "registrationNo": "",
     "cert80G": "",
-    "pan": "AAAXX0000X"
+    "pan": ""
   },
   "contact": {
-    "email": "donate@sanvitrust.org",
-    "phone": "+91 00000 00000",
-    "whatsapp": "+91 00000 00000",
-    "address": "Village Road, District, Puducherry 000000"
+    "email": "director@sectpondy.org",
+    "phone": "+91 97507 18191",
+    "whatsapp": "+91 97507 18191",
+    "address": "No. 58, Kamaraj Salai, Pooranankuppam, Hotel Le-Pondy Road, Puducherry 605007"
   },
   "payment": {
     "gatewayUrl": "#",
-    "upiId": "sanvitrust@upi",
-    "bankAccountName": "Sanvi Educational and Charitable Trust",
-    "bankAccountNumber": "0000000000000",
-    "bankIfsc": "XXXX0000000",
-    "bankName": "Bank Name, Branch"
+    "upiId": "9750718191@okbizaxis",
+    "bankAccountName": "Sanvi Educational & Charitable Trust",
+    "bankAccountNumber": "",
+    "bankIfsc": "",
+    "bankName": ""
   },
   "meta": {
     "lastUpdated": ""

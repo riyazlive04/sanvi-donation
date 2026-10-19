@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var GATE_PASSWORD = "SanviEducation"; // convenience gate only — NOT real security.
+  var GATE_PASSWORD = "SanviEducation"; // convenience gate only - NOT real security.
   // Real protection is the ADMIN_PASSWORD env var checked server-side in api/content.js
   // on every publish. Anyone reading this file's source can see this constant, so set
   // ADMIN_PASSWORD in your Vercel project settings before going live with real donors.
@@ -56,16 +56,27 @@
   /* ---------------- Load content into form ---------------- */
   var BUDGET_ROWS = 0;
 
+  var BUDGET_PLACEHOLDER_EXAMPLES = [
+    { label: "e.g. Foundation & structure (RCC)", amount: "e.g. 180000" },
+    { label: "e.g. Roofing & flooring", amount: "e.g. 95000" },
+    { label: "e.g. Windows, doors & ventilation", amount: "e.g. 55000" },
+    { label: "e.g. Electrical wiring & fans", amount: "e.g. 40000" },
+    { label: "e.g. Desks, benches & blackboard", amount: "e.g. 65000" },
+    { label: "e.g. Paint, finishing & signage", amount: "e.g. 35000" },
+    { label: "e.g. Skilled & local labour", amount: "e.g. 30000" }
+  ];
+
   function renderBudgetRows(items) {
     var container = qs("#budgetRows");
     container.innerHTML = "";
     BUDGET_ROWS = items.length;
     items.forEach(function (item, i) {
+      var example = BUDGET_PLACEHOLDER_EXAMPLES[i % BUDGET_PLACEHOLDER_EXAMPLES.length];
       var row = document.createElement("div");
       row.className = "budget-row-edit";
       row.innerHTML =
-        '<input type="text" id="f_budget_item_' + i + '_label" placeholder="Item label">' +
-        '<input type="number" id="f_budget_item_' + i + '_amount" placeholder="Amount ₹">';
+        '<input type="text" id="f_budget_item_' + i + '_label" placeholder="' + example.label + '">' +
+        '<input type="number" id="f_budget_item_' + i + '_amount" placeholder="' + example.amount + '">';
       container.appendChild(row);
       setVal("f_budget_item_" + i + "_label", item.label);
       setVal("f_budget_item_" + i + "_amount", item.amount);
@@ -128,7 +139,7 @@
   async function loadIntoForm() {
     showBanner("Loading current content…", "ok");
     var data = await fetchCurrentContent();
-    if (!data) { showBanner("Could not load existing content — starting blank.", "warn"); data = { campaign: {}, budget: { items: [] }, legal: {}, contact: {}, payment: {} }; }
+    if (!data) { showBanner("Could not load existing content, starting blank.", "warn"); data = { campaign: {}, budget: { items: [] }, legal: {}, contact: {}, payment: {} }; }
     populateForm(data);
     qs("#statusBanner").classList.remove("is-visible");
   }
@@ -189,7 +200,7 @@
       var content = collectForm();
       try {
         localStorage.setItem(LS_ADMIN_DRAFT, JSON.stringify(content));
-        showBanner("Saved as a local preview. Open the live page in this same browser to see it — other visitors won't see this until you click \"Publish live\".", "warn");
+        showBanner("Saved as a local preview. Open the live page in this same browser to see it. Other visitors won't see this until you click \"Publish live\".", "warn");
       } catch (e) {
         showBanner("Could not save preview: " + e.message, "err");
       }
@@ -207,7 +218,7 @@
         });
         var out = await res.json();
         if (res.status === 401) {
-          showBanner("Incorrect password on the server side — re-enter the admin password.", "err");
+          showBanner("Incorrect password on the server side, re-enter the admin password.", "err");
           try { sessionStorage.removeItem(SS_PW); } catch (e) {}
           qs("#adminWrap").classList.remove("is-visible");
           qs("#gateScreen").style.display = "flex";

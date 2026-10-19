@@ -25,7 +25,7 @@ function readDefaultContent() {
 }
 
 // GET  -> current live content (Neon Postgres if connected, else the bundled content.json)
-// POST -> { password, content } — password checked against ADMIN_PASSWORD env var
+// POST -> { password, content } - password checked against ADMIN_PASSWORD env var
 //         (falls back to "SanviEducation" if that env var isn't set).
 //         Requires a Neon Postgres database (via Vercel Marketplace) to actually
 //         persist across all visitors; without it, the save is rejected with a
